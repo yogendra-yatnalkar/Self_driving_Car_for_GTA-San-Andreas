@@ -1,0 +1,8 @@
+.vscode/
+/src/capture_data/__pycache__/
+/src/preprocess/__pycache__/
+/src/game_dataset/*.png
+/src/game_dataset/*.jpeg
+/src/game_dataset/*.jpg
+/src/other
+gta_sa.exe - Shortcut (2).lnk
