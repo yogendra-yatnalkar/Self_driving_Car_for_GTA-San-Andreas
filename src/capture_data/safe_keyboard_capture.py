@@ -65,7 +65,7 @@ if __name__ == "__main__":
         print("The program will start in : ",i)
         time.sleep(1)
 
-    save_img_path = 'D:/Yogendra D/AI_for_any_game_using_CNN/src/game_dataset'
+    save_img_path = 'D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/game_dataset'
     obj = KeyboardCapture(x0,y0,x1,y1,save_img_path)
 
     try:

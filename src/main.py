@@ -24,7 +24,7 @@ def main():
     delay_time = 6
     util.generate_delay(delay_time)
     start_time = time.time()
-    save_img_path = 'D:/Yogendra D/AI_for_any_game_using_CNN/src/game_dataset' 
+    save_img_path = 'D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/game_dataset' 
     # csv files will be stores one directory above the image path
     obj = KeyboardCapture(x0,y0,x1,y1,save_img_path)
 
@@ -42,8 +42,8 @@ def main():
         obj.data_set = []
         gc.collect()
     
-    ds_path = 'D:/Yogendra D/AI_for_any_game_using_CNN/src/game_dataset' 
-    csv_path = 'D:/Yogendra D/AI_for_any_game_using_CNN/src'
+    ds_path = 'D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/game_dataset' 
+    csv_path = 'D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src'
     rm_obj = RemoveDuplicate(ds_path)
     rm_obj.rm_duplicate_img()
 
