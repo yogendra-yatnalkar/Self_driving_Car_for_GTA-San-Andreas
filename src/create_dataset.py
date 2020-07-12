@@ -8,11 +8,11 @@ import sys
 
 
 def main():
-    print("Press 's' to start the program: ")
+    print("Press 's' to start the program: ",end = '')
     while input() != "s":
         time.sleep(0.1)
     print(
-        "\nDrag the mouse to the region which needs to be recorded and press enter...\n"
+        "\nDrag the mouse to the region which needs to be recorded and press enter...\nEnter 'c' to cancel!"
     )
     util = Utility()
     try:

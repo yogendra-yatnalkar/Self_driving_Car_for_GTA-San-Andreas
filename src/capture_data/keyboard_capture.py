@@ -112,27 +112,18 @@ class KeyboardCapture:
                 and self.pause_flag == 1
                 and key != keyboard.Key.alt_r
             ):
-                keys_accepted = ["w", "a", "s", "d"]
-                try:
-                    if key.char in keys_accepted:
-                        print("Key recorded. Press alt(right) to pause recording...")
-                        self.key_pressed.add(key)
-                        sc_grab = self.sc_cap_obj.image_grab()  # screen grab
-                        img_name = self.sv_file_obj.save_image(
-                            sc_grab
-                        )  # save the screen to disk
-                        key_pressed_list = list(self.key_pressed)
-                        self.data_set.append(
-                            {"image_name": img_name, "action": key_pressed_list}
-                        )
-                        key_pressed_list = []
-                        # print(img_name, self.key_pressed)
-                    else:
-                        print(
-                            "\nKey not recorded. Press alt(right) to pause recording..."
-                        )
-                except:
-                    print("Error while recording the screen or keyboard")
+                print("\nKey recorded. Press alt(right) to pause recording...")
+                self.key_pressed.add(key)
+                sc_grab = self.sc_cap_obj.image_grab()  # screen grab
+                img_name = self.sv_file_obj.save_image(
+                    sc_grab
+                )  # save the screen to disk
+                key_pressed_list = list(self.key_pressed)
+                self.data_set.append(
+                    {"image_name": img_name, "action": key_pressed_list}
+                )
+                key_pressed_list = []
+                print(img_name, self.key_pressed)
 
     def on_release(self, key):
         if key == keyboard.Key.esc:
