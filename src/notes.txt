@@ -3,20 +3,28 @@
 3. select the keyPress thresh (optional)
 4. save the image then save the key pressed with its image name in .csv file (dataset.csv)
 
-Preprocessing:
+Lane_detection:
 1. select the roi (remove unnecessary edges)
 2. Hough transformation 
 3. then blur the image to smoothe its edges( gaussian i guess)
-4. car detection in front using maskrcnn (Try - not sure of this) ----> (no ..try using yolo...its much faster than maskrcnn)
-5. lane detection : (try tf object detection api) --> (i was wrong ... need to use opencv only)
+4. car detection in front using maskrcnn (Try - not sure of this) ----> (no ..try using yolo...its much faster than maskrcnn) (Useless)
+5. lane detection : (try tf object detection api) --> (i was wrong ... need to use opencv only) (Useless)
 
-Train:
-pass
+Note: the preprocessing stated earlier is not used
 
-ROI:
-0,0
-1000,0
-25,600
-975,600
-450,400
-750,400
+Preporcessing(Later):
+  1. down half edge highlighter
+  2. crop the upper less than half part
+
+Catagories for multi-class classification
+  1. forward - w
+  2. backword - s
+  3. left - a
+  4. right - d
+  5. forward_right - w,d
+  6. forward_left - w,a
+  7. backward_right - s,d
+  8. backward_left - s,a
+(Now create a mapping for this in the csv file)
+
+For all the images now in one folder, save all the images in these 8 folders.

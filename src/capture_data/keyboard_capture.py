@@ -5,10 +5,13 @@ from PIL import ImageGrab
 import numpy as np
 import pandas as pd
 from pynput import keyboard
+import uuid
 
 
 class ScreenCapture:
     def __init__(self, x_ul, y_ul, x_br, y_br):
+        # x_ul, y_ul --> x,y coordinates of upper left corner
+        # x_br, y_br --> x,y coordinates of bottom right corner
         self.x_ul = x_ul
         self.y_ul = y_ul
         self.x_br = x_br
@@ -29,10 +32,7 @@ class SaveFile:
         self.width = 700
 
     def get_image_name(self):
-        files_list = os.listdir(self.path)
-        dir_len = len(files_list)
-        files_list = []
-        img_name = str(dir_len + 1) + ".jpg"
+        img_name = str(uuid.uuid4().hex) + ".jpg"
         return img_name
 
     def set_dimensions(self, ht, wt):
@@ -73,10 +73,10 @@ class KeyboardCapture:
 
         self.pause_flag = 1
         self.count_flag = 1  # decides the program will pause keyboard capture or not
-        self.thresh = 8  # set threshold when same key is pressed continiously
+        self.thresh = 10  # set threshold when same key is pressed continiously
         self.cnt = 0
         self.hist_key = (
-            None  # Store the last pressed key to count the no of times a key is pressed
+            None  # Store the last pressed key to count the no of uuids a key is pressed
         )
 
     def set_thresh(self, thresh_val):
@@ -92,7 +92,12 @@ class KeyboardCapture:
         else:
             self.count_flag = 1
         self.hist_key = key
-        print("\n", self.count_flag, end=" ")
+        if self.count_flag == 0:
+            print(
+                "\nKey not recorded because same key pressed for",
+                self.thresh,
+                "times...",
+            )
 
         if key != keyboard.Key.esc:
             if key == keyboard.Key.alt_r:
@@ -100,23 +105,34 @@ class KeyboardCapture:
                     self.pause_flag = 0
                 else:
                     self.pause_flag = 1
-            print(self.pause_flag)
+            if self.pause_flag == 0:
+                print("\nRecording Paused. Press alt(right) to continue...")
             if (
                 self.count_flag == 1
                 and self.pause_flag == 1
                 and key != keyboard.Key.alt_r
             ):
-                self.key_pressed.add(key)
-                sc_grab = self.sc_cap_obj.image_grab()  # screen grab
-                img_name = self.sv_file_obj.save_image(
-                    sc_grab
-                )  # save the screen to disk
-                key_pressed_list = list(self.key_pressed)
-                self.data_set.append(
-                    {"image_name": img_name, "action": key_pressed_list}
-                )
-                key_pressed_list = []
-                print(img_name, self.key_pressed)
+                keys_accepted = ["w", "a", "s", "d"]
+                try:
+                    if key.char in keys_accepted:
+                        print("Key recorded. Press alt(right) to pause recording...")
+                        self.key_pressed.add(key)
+                        sc_grab = self.sc_cap_obj.image_grab()  # screen grab
+                        img_name = self.sv_file_obj.save_image(
+                            sc_grab
+                        )  # save the screen to disk
+                        key_pressed_list = list(self.key_pressed)
+                        self.data_set.append(
+                            {"image_name": img_name, "action": key_pressed_list}
+                        )
+                        key_pressed_list = []
+                        # print(img_name, self.key_pressed)
+                    else:
+                        print(
+                            "\nKey not recorded. Press alt(right) to pause recording..."
+                        )
+                except:
+                    print("Error while recording the screen or keyboard")
 
     def on_release(self, key):
         if key == keyboard.Key.esc:
