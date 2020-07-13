@@ -30,11 +30,9 @@ def main():
     delay_time = 6
     util.generate_delay(delay_time)
     start_time = time.time()
-    save_img_path = (
-        "D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/game_dataset"
-    )
+    ds_path = "D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/csv_dataset"
     # csv files will be stores one directory above the image path
-    obj = KeyboardCapture(x0, y0, x1, y1, save_img_path)
+    obj = KeyboardCapture(x0, y0, x1, y1, ds_path)
 
     try:
         listener = keyboard.Listener(on_press=obj.on_press, on_release=obj.on_release)
@@ -48,11 +46,10 @@ def main():
         obj.data_set = []
         gc.collect()
 
-    ds_path = "D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/csv_dataset"
     csv_path = "D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src"
     rm_obj = RemoveDuplicate(ds_path)
     rm_obj.rm_duplicate_img()
-
+    
     end_time = time.time()
     print("Time required for execution : ", end_time - start_time)
 
