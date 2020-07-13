@@ -7,7 +7,7 @@
 /src/csv_dataset/*.jpg
 
 /src/other
-
+/src/rm_files.bat
 /src/tf_dataset/
 
 gta_sa.exe.lnk
