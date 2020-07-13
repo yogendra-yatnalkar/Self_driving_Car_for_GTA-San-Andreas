@@ -124,6 +124,7 @@ class KeyboardCapture:
                 )
                 key_pressed_list = []
                 print(img_name, self.key_pressed)
+                
 
     def on_release(self, key):
         if key == keyboard.Key.esc:

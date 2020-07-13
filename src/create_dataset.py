@@ -48,7 +48,7 @@ def main():
         obj.data_set = []
         gc.collect()
 
-    ds_path = "D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/game_dataset"
+    ds_path = "D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/csv_dataset"
     csv_path = "D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src"
     rm_obj = RemoveDuplicate(ds_path)
     rm_obj.rm_duplicate_img()

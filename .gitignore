@@ -1,8 +1,13 @@
 .vscode/
 /src/capture_data/__pycache__/
 /src/preprocess/__pycache__/
-/src/game_dataset/*.png
-/src/game_dataset/*.jpeg
-/src/game_dataset/*.jpg
+
+/src/csv_dataset/*.png
+/src/csv_dataset/*.jpeg
+/src/csv_dataset/*.jpg
+
 /src/other
+
+/src/tf_dataset/
+
 gta_sa.exe.lnk
