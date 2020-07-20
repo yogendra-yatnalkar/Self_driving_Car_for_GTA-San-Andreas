@@ -14,7 +14,7 @@ class ScreenCapture:
         # x_br, y_br --> x,y coordinates of bottom right corner
         self.x_ul = x_ul
         self.y_ul = y_ul
-        self.x_br = x_br
+        self.x_br = x_br    
         self.y_br = y_br
 
     def image_grab(self):
