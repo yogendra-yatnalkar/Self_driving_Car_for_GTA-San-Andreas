@@ -62,7 +62,7 @@ if __name__ == "__main__":
     # initializing screen capture object and prediction object
     sc_cap = ScreenCapture(x0,y0,x1,y1)
 
-    model_name = 'val_model_small.h5'
+    model_name = 'val_model_medium.h5'
     model_path = 'D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/models'
     loaded_model = PredictImage(224,224,model_path,model_name)
 
@@ -83,9 +83,9 @@ if __name__ == "__main__":
             for key in action:
                 pydirectinput.keyDown(key)
             action_history = action
-                # time.sleep(0.2)
-                # for key in action:
-                #     pydirectinput.keyUp(key)
+            # time.sleep(0.3)
+            # for key in action:
+            #     pydirectinput.keyUp(key)
                 
                 # # display input frame
                 # cv2.namedWindow('current window', cv2.WINDOW_NORMAL)
