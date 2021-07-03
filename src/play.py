@@ -6,6 +6,7 @@ import cv2
 import efficientnet.tfkeras
 import time
 import pydirectinput
+import sys
 
 from preprocess.edge_highlighter import edge_highlighter
 from capture_data.keyboard_capture import ScreenCapture
@@ -63,7 +64,7 @@ if __name__ == "__main__":
     sc_cap = ScreenCapture(x0,y0,x1,y1)
 
     model_name = 'val_model_medium.h5'
-    model_path = 'D:/Yogendra D/Self_driving_Car_for_GTA-San-Andreas/src/models'
+    model_path = './models'
     loaded_model = PredictImage(224,224,model_path,model_name)
 
     frame_skipper = 2

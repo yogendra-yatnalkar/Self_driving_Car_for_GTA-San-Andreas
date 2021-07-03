@@ -1,3 +1,5 @@
+Note: I had written these notes during development process, so they are not directly useful to anyone. Just keeping it over here if someone is actually forking this repository, these small notes might surely help.
+
 1. select the roi first
 2. capture the image only when a key is pressed on the keyboard.
 3. select the keyPress thresh (optional)
@@ -28,3 +30,5 @@ Catagories for multi-class classification
 (Now create a mapping for this in the csv file)
 
 For all the images now in one folder, save all the images in these 8 folders.
+
+To run gta sa in small mode use the package d3d9.dll and save it in the installtion folder
