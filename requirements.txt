@@ -6,7 +6,7 @@ pynput==1.6.8
 matplotlib==3.3.0
 opencv_python==4.3.0.36
 pandas==1.0.5
-numpy==1.18.5
+numpy==1.22.0
 efficientnet==1.1.0
 tensorflow==2.1.0
 Pillow==8.3.0
